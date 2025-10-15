@@ -2,9 +2,9 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 
 const connect = new Sequelize('computer', 'root', process.env.DB_PASSWORD, {
-    host: "localhost",
+    host: process.env.DB_HOST,
     dialect: 'mysql',
-    port: require('mysql2'),
+    port: process.env.MYSQL_PORT,
 });
 
 const connectDB = async () => {
