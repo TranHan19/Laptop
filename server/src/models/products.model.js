@@ -41,6 +41,16 @@ const product = connect.define('product', {
         type: DataTypes.JSON,
         allowNull: false,
     },
+    categoryId: {   // cột UUID để quan hệ foreign key
+        type: DataTypes.UUID,
+        allowNull: true,  // cho phép null nếu chưa map category
+        references: {
+            model: 'categories',
+            key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+    },
 });
 
 module.exports = product;
